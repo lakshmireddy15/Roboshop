@@ -29,18 +29,18 @@ dnf install nodejs -y
 
 ## Service Check Commands
 
-### Check Nginx:
+### Check Nginx: In frontend server
 ```bash
 ps -ef | grep nginx
 ```
 
-### Check MongoDB:
+### Check MongoDB: in mongodb server
 ```bash
 ps -ef | grep mongo
 ```
 
 ---
-
+here mongo and nginx are the system users
 ## User Setup and Permissions
 
 - Services should not run on root credentials for security.
