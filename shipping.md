@@ -38,8 +38,9 @@ mkdir /app
 ## 3. Download and Extract Application Code
 
 ```bash
-cd /app
+
 curl -L -o /tmp/shipping.zip https://roboshop-artifacts.s3.amazonaws.com/shipping-v3.zip
+cd /app
 unzip /tmp/shipping.zip
 ```
 
