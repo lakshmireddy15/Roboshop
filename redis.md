@@ -46,30 +46,88 @@ app ---> cache ---> DB ---> cache (cache miss)
 ### Update DNS Record for Redis
 Before starting Redis, update the DNS record if necessary to ensure proper communication.
 
-### Connecting to Redis
+# Connecting to Redis
 
-1. **Switch to root user:**
+## 1. Switch to Root User
+
 ```bash
 sudo su -
-Disable the default Redis module (if already installed):
+```
+
+## 2. Disable the Default Redis Module (if already installed)
+
+```bash
 dnf module disable redis -y
-Enable Redis 7 module:
+```
+
+## 3. Enable Redis 7 Module
+
+```bash
 dnf module enable redis:7 -y
-Install Redis:
+```
+
+## 4. Install Redis
+
+```bash
 dnf install redis -y
-Configure Redis to allow connections:
+```
 
-Edit the redis.conf file (usually located at /etc/redis/redis.conf):
+## 5. Configure Redis to Allow External Connections
 
-Bind Redis to 0.0.0.0 (allow external connections).
+### Edit the Redis Configuration File
 
-Ensure the following line is present:
+The configuration file is usually located at:
+
+```
+/etc/redis/redis.conf
+```
+
+Edit the file using `vi` or your preferred text editor:
+
+```bash
+vi /etc/redis/redis.conf
+```
+
+### Modify the `bind` Parameter
+
+Find and update the following line:
+
+```conf
 bind 0.0.0.0
-Save and exit the file:
+```
+
+This allows Redis to accept connections from any IP address.
+
+### Save and Exit
+
+Press `Esc`, then type:
+
+```
 :wq!
+```
+
+and hit `Enter` to save and exit.
+
+## 6. Enable and Start Redis
+
+```bash
 systemctl enable redis
 systemctl start redis
+```
+
+## 7. Verify Redis is Listening on Port 6379
+
+```bash
 netstat -lntp
+```
+
+You should see output like:
+
+```
 tcp   0   0 0.0.0.0:6379   0.0.0.0:*   LISTEN
-Redis Default Port
-Port Number: 6379
+```
+
+## Redis Default Port
+
+- **Port Number:** `6379`
+
