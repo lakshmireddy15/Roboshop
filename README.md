@@ -52,3 +52,5 @@
 - Language: **Golang**
 - Dependencies:
   - **RabbitMQ DB**
+
+everything should be in different servers beacuse of security and maintances 
