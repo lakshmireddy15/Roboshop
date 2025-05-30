@@ -19,7 +19,7 @@ It is dependent on **Cart** and **MySQL** services.
 ## 1. Install Maven (installs Java too)
 
 ```bash
-sudo dnf install maven -y
+dnf install maven -y
 java --version
 mvn --version
 ```
