@@ -155,3 +155,4 @@ telnet redis.lakshmireddy.site 6379
 ```
 
 ---
+clrl+] quit
