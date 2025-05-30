@@ -130,4 +130,28 @@ tcp   0   0 0.0.0.0:6379   0.0.0.0:*   LISTEN
 ## Redis Default Port
 
 - **Port Number:** `6379`
+## ⚠️ Redis Configuration
 
+If Redis is running in **protected mode**, update the config:
+
+```bash
+vim /etc/redis/redis.conf
+# Change:
+# protected-mode yes
+# To:
+protected-mode no
+```
+
+Restart Redis:
+
+```bash
+systemctl restart redis
+```
+
+Revalidate:
+
+```bash
+telnet redis.lakshmireddy.site 6379
+```
+
+---
